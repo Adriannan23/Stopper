@@ -8,8 +8,8 @@ const Stoper = () => {
   const [timer, setTimer] = useState(null);
 
   const startTime = () => {
-    const timer = setInterval(() => { setTime(previousNum => previousNum + 1) }, 10);
-    console.log('setTimer', setTimer);
+    const timer = setInterval(() => { setTime(previousNum => previousNum + 10) }, 10);
+
     console.log('timer', timer);
     setTimer(timer)
   }
@@ -25,7 +25,12 @@ const Stoper = () => {
   return (
     <div>
       <h1>Stoper</h1>
-      <div>{time}</div>
+      <div>
+        <span>{('0' + Math.floor((time / 60000) % 100)).slice(-2)}:</span>
+        <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+        <span>{('0' + Math.floor((time / 10) % 100)).slice(-2)}:</span>
+        <span>{('0' + (time % 100)).slice(-2)}</span>
+      </div>
       <Button title="start" action={startTime} />
       <Button title="stop" action={stopTimer} />
       <Button title="reset" action={resetTime} />
