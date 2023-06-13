@@ -6,17 +6,14 @@ const Stoper = () => {
 
   const [time, setTime] = useState(0);
   const [timer, setTimer] = useState(null);
-  const [isRunning, setIsRunning] = useState(0);
 
   const startTime = () => {
-    setIsRunning(true);
     const timer = setInterval(() => { setTime(previousNum => previousNum + 10) }, 10);
     setTimer(timer)
   }
 
   const stopTimer = () => {
     clearInterval(timer);
-    setIsRunning(false);
   }
 
   const resetTime = () => {
