@@ -6,16 +6,17 @@ const Stoper = () => {
 
   const [time, setTime] = useState(0);
   const [timer, setTimer] = useState(null);
+  const [isRunning, setIsRunning] = useState(0);
 
   const startTime = () => {
+    setIsRunning(true);
     const timer = setInterval(() => { setTime(previousNum => previousNum + 10) }, 10);
-
-    console.log('timer', timer);
     setTimer(timer)
   }
 
   const stopTimer = () => {
     clearInterval(timer);
+    setIsRunning(false);
   }
 
   const resetTime = () => {
@@ -27,8 +28,8 @@ const Stoper = () => {
       <div>
         <span>{('0' + Math.floor((time / 60000) % 100)).slice(-2)}:</span>
         <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
-        <span>{('0' + Math.floor((time / 10) % 100)).slice(-2)}:</span>
-        <span>{('0' + (time % 100)).slice(-2)}</span>
+        <span>{('0' + Math.floor((time / 10) % 100)).slice(-2)}.</span>
+        <span>{(((time % 1000)))}</span>
       </div>
       <div className='button-box'>
         <Button title="start" action={startTime} />

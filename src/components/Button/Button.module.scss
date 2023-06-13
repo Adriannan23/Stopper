@@ -3,14 +3,15 @@
   color: white;
   font-weight: 600;
   text-align: center;
-  line-height: 1.3;
+  // line-height: 1.3;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
-  width: 80px;
+  width: 70px;
   height: 40px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-right:15px;
 
   &:hover {
       background:rgb(52, 188, 109);
